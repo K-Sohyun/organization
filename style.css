@@ -1,0 +1,64 @@
+/* 임시 CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+body {
+  max-width: 1500px;
+  padding: 0 15px;
+  margin: 100px auto;
+}
+
+/* 조직도 CSS */
+#org-grid {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr); /* 10열 그리드 */
+  gap: 30px;
+  width: 100%;
+}
+
+#org-grid .item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 10px 4px;
+  font-size: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+#org-grid .item--wide {
+  grid-column: span 2; /* 2열 차지 */
+}
+
+#org-grid .item.hidden {
+  opacity: 0; /* 숨김 처리 */
+}
+
+#org-grid .item .role {
+  font-weight: 700;
+  letter-spacing: -0.4px;
+}
+
+#org-grid .item .name {
+  display: block;
+  font-size: 13px;
+}
+
+/* 세로 텍스트 (선택 사항) */
+#org-grid .item .vertical-text {
+  display: flex;
+  width: min-content;
+  word-break: break-all;
+  margin: 0 auto;
+  line-height: 1.2;
+}

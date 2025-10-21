@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="org-grid">
+      <template id="org-item-template">
+        <div class="item">
+          <p>
+            <span class="role">직책</span>
+            <span class="name">성함</span>
+          </p>
+        </div>
+      </template>
+    </div>
+
+    <script>
+      const COUNT = 120;
+      const grid = document.getElementById("org-grid");
+      const itemTemplate = document.getElementById("org-item-template");
+      const frag = document.createDocumentFragment();
+
+      for (let i = 0; i < COUNT; i++) {
+        const node = itemTemplate.content.firstElementChild.cloneNode(true);
+
+        // 특정 아이템에 2열 너비 적용
+        // if (i === 4) {
+        //   node.classList.add("item--wide");
+        // }
+
+        frag.appendChild(node);
+      }
+      grid.appendChild(frag);
+
+      // 클릭 시 숨김 토글
+      grid.addEventListener("click", (e) => {
+        const item = e.target.closest(".item");
+        if (!item) return;
+        item.classList.toggle("hidden");
+      });
+    </script>
+  </body>
+</html>
